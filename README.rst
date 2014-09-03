@@ -4,7 +4,7 @@ Avocado Virt Tests
 These are sample tests written with the avocado virt plugin [1].
 
 Provided that you have avocado and its virt plugin installed, you can run the
-tests like the following:
+tests like the following::
 
     $ avocado run qemu/boot.py 
     No handlers could be found for logger "avocado.test"
