@@ -22,6 +22,7 @@ from avocado.virt.qemu import machine
 class boot(test.VirtTest):
 
     def setup(self):
+        super(boot, self).setup()
         self.vm = machine.VM(self.params)
         self.vm.devices.add_display('none')
         self.vm.devices.add_vga('none')
