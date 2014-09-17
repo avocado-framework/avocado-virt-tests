@@ -15,7 +15,6 @@
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
 from avocado import job
-from avocado.core import data_dir
 from avocado.virt import test
 from avocado.virt.qemu import machine
 
@@ -26,8 +25,7 @@ class migration(test.VirtTest):
         self.vm = machine.VM(self.params)
         self.vm.devices.add_display('none')
         self.vm.devices.add_vga('none')
-        drive_file = data_dir.get_datafile_path('images', 'jeos-20-64.qcow2')
-        self.vm.devices.add_drive(drive_file)
+        self.vm.devices.add_drive()
         self.vm.devices.add_net()
         self.vm.launch()
         self.vm.setup_remote_login()
