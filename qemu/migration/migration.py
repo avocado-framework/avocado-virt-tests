@@ -14,33 +14,18 @@
 # Copyright: Red Hat Inc. 2013-2014
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
-from avocado import job
 from avocado.virt import test
-from avocado.virt.qemu import machine
 
 
 class migration(test.VirtTest):
 
-    def setup(self):
-        super(migration, self).setup()
-        self.vm = machine.VM(self.params)
-        self.vm.devices.add_display('none')
-        self.vm.devices.add_vga('none')
-        self.vm.devices.add_drive()
-        self.vm.devices.add_net()
-        self.vm.launch()
-        self.vm.setup_remote_login()
-
     def action(self):
+        self.vm.power_on()
         migration_mode = self.params.get('migration_mode', 'tcp')
         for _ in xrange(self.params.get('migration_iterations', 4)):
             self.vm.migrate(migration_mode)
-            self.vm.setup_remote_login()
+            self.vm.login_remote()
 
     def cleanup(self):
         self.vm.remote.run('shutdown -h now')
-        self.vm.shutdown()
-
-
-if __name__ == "__main__":
-    job.main()
+        self.vm.power_off()

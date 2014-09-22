@@ -14,29 +14,15 @@
 # Copyright: Red Hat Inc. 2013-2014
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
-from avocado import job
 from avocado.virt import test
-from avocado.virt.qemu import machine
 
 
 class boot(test.VirtTest):
 
-    def setup(self):
-        super(boot, self).setup()
-        self.vm = machine.VM(self.params)
-        self.vm.devices.add_display('none')
-        self.vm.devices.add_vga('none')
-        self.vm.devices.add_drive()
-        self.vm.devices.add_net()
-
     def action(self):
-        self.vm.launch()
-        self.vm.setup_remote_login()
+        self.vm.power_on()
+        self.vm.login_remote()
 
     def cleanup(self):
         self.vm.remote.run('shutdown -h now')
-        self.vm.shutdown()
-
-
-if __name__ == "__main__":
-    job.main()
+        self.vm.power_off()
