@@ -1,0 +1,12 @@
+iozone:
+    avocado.args.run.guest_image_path: /home/user/avocado/data/images/distro-with-iozone.qcow2
+    avocado.args.run.guest_user: john_doe
+    avocado.args.run.guest_password: pass1
+    2472b6c:
+        avocado.args.run.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_2472b6c
+    f383611:
+        avocado.args.run.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f383611
+    1b53eab:
+        avocado.args.run.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_1b53eab
+    f5bebbb:
+        avocado.args.run.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f5bebbb
