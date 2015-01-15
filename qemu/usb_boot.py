@@ -14,8 +14,8 @@
 # Copyright: Red Hat Inc. 2013-2014
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
-from avocado.virt import test
-from avocado.core import exceptions
+from virt import test
+from core import exceptions
 
 
 class usb_boot(test.VirtTest):
@@ -29,17 +29,17 @@ class usb_boot(test.VirtTest):
     """
 
     def action(self):
-        usb_bus_cmdline = self.params.get('avocado.virt.tests.usb_boot.usb_bus_cmdline',
+        usb_bus_cmdline = self.params.get('virt.tests.usb_boot.usb_bus_cmdline',
                                           '-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05')
         self.vm.devices.add_cmdline(usb_bus_cmdline)
-        usb_device_cmdline = self.params.get('avocado.virt.tests.usb_boot.usb_device_cmdline',
+        usb_device_cmdline = self.params.get('virt.tests.usb_boot.usb_device_cmdline',
                                              '-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1')
         self.vm.devices.add_cmdline(usb_device_cmdline)
         self.vm.power_on()
         self.vm.login_remote()
 
-        check_cmd = self.params.get('avocado.virt.tests.usb_boot.check_cmd', 'lsusb -v')
-        device_name = self.params.get('avocado.virt.tests.usb_boot.device_name', 'QEMU USB Tablet')
+        check_cmd = self.params.get('virt.tests.usb_boot.check_cmd', 'lsusb -v')
+        device_name = self.params.get('virt.tests.usb_boot.device_name', 'QEMU USB Tablet')
 
         failures = {'monitor': None, 'check_cmd': None, 'dmesg': None}
 
