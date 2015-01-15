@@ -1,15 +1,15 @@
 usb_boot:
-    avocado.virt.tests.usb_boot.usb_bus_cmdline: '-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05'
-    avocado.virt.tests.usb_boot.check_cmd: lsusb -v
+    virt.tests.usb_boot.usb_bus_cmdline: '-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05'
+    virt.tests.usb_boot.check_cmd: lsusb -v
     tablet:
-        avocado.virt.tests.usb_boot.usb_device_cmdline: '-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1'
-        avocado.virt.tests.usb_boot.device_name: 'QEMU USB Tablet'
+        virt.tests.usb_boot.usb_device_cmdline: '-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1'
+        virt.tests.usb_boot.device_name: 'QEMU USB Tablet'
     keyboard:
-        avocado.virt.tests.usb_boot.usb_device_cmdline: '-device usb-kbd,id=usb-kbd,bus=usbtest.0,port=1'
-        avocado.virt.tests.usb_boot.device_name: 'QEMU USB Keyboard'
+        virt.tests.usb_boot.usb_device_cmdline: '-device usb-kbd,id=usb-kbd,bus=usbtest.0,port=1'
+        virt.tests.usb_boot.device_name: 'QEMU USB Keyboard'
     mouse:
-        avocado.virt.tests.usb_boot.usb_device_cmdline: '-device usb-mouse,id=usb-mouse,bus=usbtest.0,port=1'
-        avocado.virt.tests.usb_boot.device_name: 'QEMU USB Mouse'
+        virt.tests.usb_boot.usb_device_cmdline: '-device usb-mouse,id=usb-mouse,bus=usbtest.0,port=1'
+        virt.tests.usb_boot.device_name: 'QEMU USB Mouse'
     audio:
-        avocado.virt.tests.usb_boot.usb_device_cmdline: '-device usb-audio,id=usb-audio,bus=usbtest.0,port=1'
-        avocado.virt.tests.usb_boot.device_name: 'QEMU USB Audio'
+        virt.tests.usb_boot.usb_device_cmdline: '-device usb-audio,id=usb-audio,bus=usbtest.0,port=1'
+        virt.tests.usb_boot.device_name: 'QEMU USB Audio'
