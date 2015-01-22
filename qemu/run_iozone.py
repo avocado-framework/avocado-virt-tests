@@ -18,7 +18,7 @@
 from avocado.virt import test
 
 
-class run_iozone(test.VirtTest):
+class RunIOZoneTest(test.VirtTest):
 
     def action(self):
         self.vm.power_on()

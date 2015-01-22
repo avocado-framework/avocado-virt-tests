@@ -18,7 +18,7 @@ from virt import test
 from core import exceptions
 
 
-class usb_boot(test.VirtTest):
+class USBBootTest(test.VirtTest):
 
     """
     1) Add a USB device to a QEMU VM

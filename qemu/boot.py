@@ -17,7 +17,7 @@
 from avocado.virt import test
 
 
-class boot(test.VirtTest):
+class BootTest(test.VirtTest):
 
     def action(self):
         self.vm.power_on()
