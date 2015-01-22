@@ -17,7 +17,7 @@
 from avocado.virt import test
 
 
-class migration(test.VirtTest):
+class MigrationTest(test.VirtTest):
 
     def action(self):
         self.vm.power_on()
