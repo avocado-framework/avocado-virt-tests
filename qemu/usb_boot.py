@@ -14,9 +14,9 @@
 # Copyright: Red Hat Inc. 2013-2014
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
-from virt import test
-from core import exceptions
 
+from avocado.virt import test
+from avocado.core import exceptions
 
 class USBBootTest(test.VirtTest):
 
