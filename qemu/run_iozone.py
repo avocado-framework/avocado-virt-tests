@@ -26,5 +26,9 @@ class RunIOZoneTest(test.VirtTest):
         self.whiteboard = self.vm.remote.run('iozone -a').stdout
 
     def cleanup(self):
-        self.vm.remote.run('shutdown -h now')
-        self.vm.power_off()
+        if self.vm:
+            if self.vm.remote:
+                self.vm.remote.run('shutdown -h now')
+                # TODO: Wait for machine to go down
+            self.vm.power_off()
+
