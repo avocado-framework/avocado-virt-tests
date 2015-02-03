@@ -27,5 +27,9 @@ class MigrationTest(test.VirtTest):
             self.vm.login_remote()
 
     def cleanup(self):
-        self.vm.remote.run('shutdown -h now')
-        self.vm.power_off()
+        if self.vm:
+            if self.vm.remote:
+                self.vm.remote.run('shutdown -h now')
+                # TODO: Wait for machine to go down
+            self.vm.power_off()
+
