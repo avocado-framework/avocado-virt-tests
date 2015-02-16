@@ -32,4 +32,3 @@ class MigrationTest(test.VirtTest):
                 self.vm.remote.run('shutdown -h now')
                 # TODO: Wait for machine to go down
             self.vm.power_off()
-
