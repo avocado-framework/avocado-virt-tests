@@ -18,6 +18,7 @@
 from avocado.virt import test
 from avocado.core import exceptions
 
+
 class USBBootTest(test.VirtTest):
 
     """
