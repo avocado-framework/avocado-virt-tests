@@ -19,7 +19,7 @@ from avocado.virt import test
 
 class MigrationTest(test.VirtTest):
 
-    def action(self):
+    def test_migrate(self):
         self.vm.power_on()
         migration_mode = self.params.get('migration_mode', 'tcp')
         for _ in xrange(self.params.get('migration_iterations', 4)):
@@ -28,7 +28,4 @@ class MigrationTest(test.VirtTest):
 
     def cleanup(self):
         if self.vm:
-            if self.vm.remote:
-                self.vm.remote.run('shutdown -h now')
-                # TODO: Wait for machine to go down
             self.vm.power_off()

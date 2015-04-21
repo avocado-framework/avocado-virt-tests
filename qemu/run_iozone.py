@@ -20,14 +20,11 @@ from avocado.virt import test
 
 class RunIOZoneTest(test.VirtTest):
 
-    def action(self):
+    def test_iozone(self):
         self.vm.power_on()
         self.vm.login_remote()
         self.whiteboard = self.vm.remote.run('iozone -a').stdout
 
-    def cleanup(self):
+    def tearDown(self):
         if self.vm:
-            if self.vm.remote:
-                self.vm.remote.run('shutdown -h now')
-                # TODO: Wait for machine to go down
             self.vm.power_off()
