@@ -19,13 +19,10 @@ from avocado.virt import test
 
 class BootTest(test.VirtTest):
 
-    def action(self):
+    def test_boot(self):
         self.vm.power_on()
         self.vm.login_remote()
 
-    def cleanup(self):
+    def tearDown(self):
         if self.vm:
-            if self.vm.remote:
-                self.vm.remote.run('shutdown -h now')
-                # TODO: Wait for machine to go down
             self.vm.power_off()
