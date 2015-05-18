@@ -21,8 +21,8 @@ class MigrationTest(test.VirtTest):
 
     def test_migrate(self):
         self.vm.power_on()
-        migration_mode = self.params.get('migration_mode', 'tcp')
-        for _ in xrange(self.params.get('migration_iterations', 4)):
+        migration_mode = self.params.get('migration_mode', default='tcp')
+        for _ in xrange(self.params.get('migration_iterations', default=4)):
             self.vm.migrate(migration_mode)
             self.vm.login_remote()
 
