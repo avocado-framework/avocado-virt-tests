@@ -1,15 +1,15 @@
-usb_boot:
-    virt.tests.usb_boot.usb_bus_cmdline: '-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05'
-    virt.tests.usb_boot.check_cmd: lsusb -v
-    tablet:
-        virt.tests.usb_boot.usb_device_cmdline: '-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1'
-        virt.tests.usb_boot.device_name: 'QEMU USB Tablet'
-    keyboard:
-        virt.tests.usb_boot.usb_device_cmdline: '-device usb-kbd,id=usb-kbd,bus=usbtest.0,port=1'
-        virt.tests.usb_boot.device_name: 'QEMU USB Keyboard'
-    mouse:
-        virt.tests.usb_boot.usb_device_cmdline: '-device usb-mouse,id=usb-mouse,bus=usbtest.0,port=1'
-        virt.tests.usb_boot.device_name: 'QEMU USB Mouse'
-    audio:
-        virt.tests.usb_boot.usb_device_cmdline: '-device usb-audio,id=usb-audio,bus=usbtest.0,port=1'
-        virt.tests.usb_boot.device_name: 'QEMU USB Audio'
+!mux
+usb_bus_cmdline: '-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05'
+check_cmd: "lsusb -v"
+tablet:
+    device_cmdline: '-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1'
+    device_name: 'QEMU USB Tablet'
+keyboard:
+    device_cmdline: '-device usb-kbd,id=usb-kbd,bus=usbtest.0,port=1'
+    device_name: 'QEMU USB Keyboard'
+mouse:
+    device_cmdline: '-device usb-mouse,id=usb-mouse,bus=usbtest.0,port=1'
+    device_name: 'QEMU USB Mouse'
+audio:
+    device_cmdline: '-device usb-audio,id=usb-audio,bus=usbtest.0,port=1'
+    device_name: 'QEMU USB Audio'

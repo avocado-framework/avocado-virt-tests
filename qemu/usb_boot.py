@@ -31,11 +31,12 @@ class USBBootTest(test.VirtTest):
         Add a USB device to a QEMU VM
         """
         super(USBBootTest, self).setUp()
-        self.device_name = self.params.get('virt.tests.usb_boot.device_name', default='QEMU USB Tablet')
-        usb_bus_cmdline = self.params.get('virt.tests.usb_boot.usb_bus_cmdline',
+        self.device_name = self.params.get('device_name',
+                                           default='QEMU USB Tablet')
+        usb_bus_cmdline = self.params.get('usb_bus_cmdline',
                                           default='-device piix3-usb-uhci,id=usbtest,bus=pci.0,addr=05')
         self.vm.devices.add_cmdline(usb_bus_cmdline)
-        usb_device_cmdline = self.params.get('virt.tests.usb_boot.usb_device_cmdline',
+        usb_device_cmdline = self.params.get('device_cmdline',
                                              default='-device usb-tablet,id=usb-tablet,bus=usbtest.0,port=1')
         self.vm.devices.add_cmdline(usb_device_cmdline)
         self.vm.power_on()
@@ -68,7 +69,7 @@ class USBBootTest(test.VirtTest):
         """
         Verify that the device shows up in the guest OS.
         """
-        check_cmd = self.params.get('virt.tests.usb_boot.check_cmd', default='lsusb -v')
+        check_cmd = self.params.get('check_cmd', default='lsusb -v')
         result_check = self.vm.remote.run(check_cmd)
         device_found = False
         for line in result_check.stdout.splitlines():

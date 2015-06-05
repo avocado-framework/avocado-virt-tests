@@ -1,12 +1,16 @@
-iozone:
-    virt.guest.image_path: /home/user/avocado/data/images/distro-with-iozone.qcow2
-    virt.guest.user: john_doe
-    virt.guest.password: pass1
-    2472b6c:
-        virt.qemu.paths.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_2472b6c
-    f383611:
-        virt.qemu.paths.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f383611
-    1b53eab:
-        virt.qemu.paths.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_1b53eab
-    f5bebbb:
-        virt.qemu.paths.qemu_bin: /home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f5bebbb
+plugins:
+    virt:
+        guest:
+            image_path: "/home/user/avocado/data/images/distro-with-iozone.qcow2"
+            user: "john_doe"
+            password: "pass1"
+        qemu:
+            paths: !mux
+                2472b6c:
+                    qemu_bin: "/home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_2472b6c"
+                f383611:
+                    qemu_bin: "/home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f383611"
+                1b53eab:
+                    qemu_bin: "/home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_1b53eab"
+                f5bebbb:
+                    qemu_bin: "/home/user/code/qemu/x86_64-softmmu/qemu-system-x86_64_f5bebbb"
