@@ -19,6 +19,13 @@ from avocado.virt import test
 
 class MigrationTest(test.VirtTest):
 
+    """
+    Creates a VM and migrates it couple of times
+
+    :param migration_mode: Migration method
+    :param migration_iterations: How many times to migrate the VM
+    """
+
     def test_migrate(self):
         self.vm.power_on()
         migration_mode = self.params.get('migration_mode', default='tcp')

@@ -23,6 +23,11 @@ class USBBootTest(test.VirtTest):
 
     """
     Add a USB device to a QEMU vm and perform sanity checks on both QEMU monitor and guest OS.
+
+    :param device_name: Expected name of the device in lsusb
+    :param usb_bus_cmdline: Cmdline option to add the usb bus
+    :param device_cmdline: Cmdline option to add the device
+    :param check_cmd: Cmd to be ran in guest to query for the device_name
     """
     device_name = None
 
