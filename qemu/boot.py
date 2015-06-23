@@ -19,6 +19,10 @@ from avocado.virt import test
 
 class BootTest(test.VirtTest):
 
+    """
+    Simple test which boots VM, logins and powers it off.
+    """
+
     def test_boot(self):
         self.vm.power_on()
         self.vm.login_remote()
