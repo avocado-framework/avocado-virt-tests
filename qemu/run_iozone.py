@@ -20,6 +20,12 @@ from avocado.virt import test
 
 class RunIOZoneTest(test.VirtTest):
 
+    """
+    Runs IOzone inside the VM
+
+    :warning: It requires iozone to be pre-installed.
+    """
+
     def test_iozone(self):
         self.vm.power_on()
         self.vm.login_remote()
