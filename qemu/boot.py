@@ -21,6 +21,8 @@ class BootTest(test.VirtTest):
 
     """
     Simple test which boots VM, logins and powers it off.
+
+    :avocado: enable
     """
 
     def test_boot(self):

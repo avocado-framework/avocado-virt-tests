@@ -28,6 +28,7 @@ class USBBootTest(test.VirtTest):
     :param usb_bus_cmdline: Cmdline option to add the usb bus
     :param device_cmdline: Cmdline option to add the device
     :param check_cmd: Cmd to be ran in guest to query for the device_name
+    :avocado: enable
     """
     device_name = None
 
