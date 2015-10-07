@@ -24,6 +24,7 @@ class MigrationTest(test.VirtTest):
 
     :param migration_mode: Migration method
     :param migration_iterations: How many times to migrate the VM
+    :avocado: enable
     """
 
     def test_migrate(self):

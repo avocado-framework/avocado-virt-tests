@@ -24,6 +24,7 @@ class RunIOZoneTest(test.VirtTest):
     Runs IOzone inside the VM
 
     :warning: It requires iozone to be pre-installed.
+    :avocado: enable
     """
 
     def test_iozone(self):
