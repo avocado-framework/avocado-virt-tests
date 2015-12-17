@@ -15,7 +15,7 @@
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
 
-from avocado.virt import test
+from avocado_virt import test
 
 
 class RunIOZoneTest(test.VirtTest):
