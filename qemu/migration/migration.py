@@ -14,7 +14,7 @@
 # Copyright: Red Hat Inc. 2013-2014
 # Author: Lucas Meneghel Rodrigues <lmr@redhat.com>
 
-from avocado.virt import test
+from avocado_virt import test
 
 
 class MigrationTest(test.VirtTest):
